@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Tetris Solver</title>
+    <script data-main="scripts/game.js" src="scripts/require.js"></script>
+  </head>
+
+  <body>
+    <canvas id='myCanvas' style='float: left; height: 400px'></canvas>
+    <div>Clears: <span id='score'></span></div>
+    <div>Last clears: <span id='last-clears'></span></div>
+    <div>Last cohesion: <span id='last-cohesion'></span></div>
+    <div>Last height: <span id='last-height'></span></div>
+    <div>Last gaps: <span id='last-gaps'></span></div>
+    <div>Last score: <span id='last-score'></span></div>
+    <br />
+    <label>Cohesion Factor: </label><input id='cohesion' value='0.5'></input><br />
+    <label>Gap Factor: </label><input id='gap' value='-5'></input><br />
+    <label>Height Factor: </label><input id='height' value='-1'></input><br />
+    <label>Clears Factor: </label><input id='clears' value='4'></input>
+    <br />
+    <p>Cohesion: The number of edges of the new piece that are touching existing pieces or the side of the grid.<br />
+    Gap: The number of empty squares with a filled in square above it. <br />
+    Height: The number of rows that have blocks in them. <br />
+    Clears: The number of rows cleared by a piece. <br />
+    </p>
+    <button id='slow'>Slow</button>
+    <button id='medium'>Medium</button>
+    <button id='fast'>Fast</button>
+    <button id='turbo'>Turbo</button>
+  </body>
+</html>
