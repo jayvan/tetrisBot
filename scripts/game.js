@@ -16,9 +16,6 @@ requirejs(['pieces'], function(PIECES) {
     }
 
     this.pieceQueue = [];
-    for (var i = 0; i < 10; i ++) {
-      this.pieceQueue.push(PIECES.randomPiece());
-    }
   };
 
   Game.prototype.resetBoard = function() {
@@ -99,8 +96,14 @@ requirejs(['pieces'], function(PIECES) {
   };
 
   Game.prototype.placeNextPiece = function() {
-    this.placeBestPosition(this.pieceQueue.shift());
-    this.pieceQueue.push(PIECES.randomPiece());
+    // Grab a new bag of pieces of we're out
+    if (this.pieceQueue.length == 0) {
+      this.pieceQueue = PIECES.getRandomBag();
+    }
+
+    var piece = PIECES.getByLetter(this.pieceQueue.shift());
+
+    this.placeBestPosition(piece);
   };
 
   // Try all of the given pieces rotations in all columns to find the best move

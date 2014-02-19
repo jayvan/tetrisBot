@@ -167,18 +167,15 @@ define(function() {
 
   var exports = {};
 
-  // Return a random pieces letter
-  exports.randomLetter = function() {
-    return LETTERS[Math.floor(Math.random() * LETTERS.length)];
-  }
+  // Return a permutation of all the tetris pieces
+  exports.getRandomBag = function() {
+    var letterOrder = LETTERS.slice();
+    letterOrder.sort(function() { return Math.random() - 0.5; });
+    return letterOrder;
+  };
 
-  // Return a random piece
-  exports.randomPiece = function() {
-    return exports.getPiece(exports.randomLetter());
-  }
-
-  // Get a piece by letter
-  exports.getPiece = function(letter) {
+  exports.getByLetter = function(letter) {
+    console.log(letter, LETTERS[letter]);
     return PIECES[letter];
   };
 
